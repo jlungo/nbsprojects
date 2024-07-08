@@ -1,4 +1,4 @@
-class Names
+class Mdee
 {
     public static void main(String []args)
     {
