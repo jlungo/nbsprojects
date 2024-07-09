@@ -4,4 +4,5 @@ class Names
     {
         System.out.println("My name is: Juma Lungo");
     }
+    System.out.println("My name is: Rose Michael");
 };
