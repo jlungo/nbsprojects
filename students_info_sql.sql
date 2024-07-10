@@ -64,3 +64,9 @@ VALUES('001','001',85,'B+'),
 	('003','001',80,'B+'),
 	('003','002',80,'B+'),
 	('003','003',98,'A+');
+
+/* INNER JOIN */
+SELECT Students.RegNo, Students.FirstName, Students.LastName, Courses.CourseName, Examresults.Marks, Examresults.Grade
+FROM Students
+INNER JOIN Examresults ON Students.RegNo = Examresults.RegNo
+INNER JOIN Courses ON Examresults.CourseCode = Courses.CourseCode;
