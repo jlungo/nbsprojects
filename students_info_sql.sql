@@ -184,3 +184,38 @@ SELECT Students.RegNo, Students.FirstName, Students.LastName, Courses.CourseName
 FROM Students
 INNER JOIN Examresults ON Students.RegNo = Examresults.RegNo
 INNER JOIN Courses ON Examresults.CourseCode = Courses.CourseCode;
+
+/* 12-07-2024 SQL COMMANDS PRACTICES */
+SELECT COUNT(*) FROM patients WHERE gender = 'F';
+SELECT COUNT(*) FROM patients WHERE gender = 'M';
+SELECT COUNT(*) FROM patients;
+SELECT first_name, last_name, gender FROM patients WHERE gender = 'F' LIMIT 10;
+SELECT first_name, last_name, gender FROM patients WHERE gender = 'M' LIMIT 10;
+SELECT first_name AS 'Jina La Kwanza', last_name AS 'Jina la Mwisho', gender AS Jinsi 
+FROM patients WHERE gender = 'F' LIMIT 10;
+
+SELECT DISTINCT patients.patient_id AS Namba, first_name AS 'Jina La Kwanza', last_name AS 'Jina la Mwisho', 
+gender AS Jinsia, admission_date AS 'Kuingia', discharge_date  AS 'Kutoka'
+FROM patients, admissions WHERE patients.patient_id = admissions.patient_id;
+
+SELECT DISTINCT patients.patient_id AS Namba, patients.first_name AS 'Jina La Kwanza', 
+patients.last_name AS 'Jina la Mwisho', gender AS Jinsia, admission_date AS 'Kuingia', 
+discharge_date  AS 'Kutoka', CONCAT(doctors.first_name,' ',doctors.last_name) AS Dakitari
+FROM patients, admissions, doctors WHERE patients.patient_id = admissions.patient_id 
+AND admissions.attending_doctor_id = doctors.doctor_id;
+
+SELECT * FROM admissions WHERE admission_date BETWEEN '2019-01-01' AND '2019-03-31';
+
+SELECT first_name, last_name, gender, allergies FROM patients WHERE allergies IS NOT NULL;
+SELECT COUNT(*) FROM patients WHERE allergies IS NOT NULL;
+SELECT first_name FROM patients WHERE first_name LIKE 'C%';
+SELECT first_name FROM patients WHERE first_name LIKE '__C%';
+SELECT first_name, weight FROM patients WHERE weight BETWEEN 100 AND 120;
+UPDATE patients SET allergies = 'NKA' WHERE allergies IS NULL;
+SELECT first_name, allergies FROM patients WHERE allergies = 'NKA';
+SELECT DISTINCT first_name, birth_date FROM patients ORDER BY birth_date ASC;
+
+SELECT DISTINCT first_name, last_name, birth_date FROM patients
+WHERE birth_date BETWEEN '1970-01-01' AND '1979-12-31'
+ORDER BY birth_date ASC;
+
