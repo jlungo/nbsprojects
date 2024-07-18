@@ -4,8 +4,8 @@ public class SimpleCalculator implements ActionListener{
     JTextField tfDisplay;  
     JButton btnPlus,btnMinus,btnMult,btnDivide,btnSqr,btnClear,btnEqual;
     JButton btn01,btn02,btn03,btn04,btn05,btn06,btn07,btn08,btn09,btn00;
-    SimpleCalculator(){  
-        JFrame f = new JFrame("MDEE'S SIMPLE CALCULATOR");  
+    SimpleCalculator(){
+        JFrame f = new JFrame("MDEE'S SIMPLE CALCULATOR");
         tfDisplay = new JTextField();
         tfDisplay.setBounds(50,50,305,30);   
         btnPlus = new JButton("+");  
@@ -68,22 +68,56 @@ public class SimpleCalculator implements ActionListener{
         f.setVisible(true);
     }
     public void actionPerformed(ActionEvent e) {  
-        // String s1 = tf1.getText();  
-        // String s2 = tf2.getText();  
-        // int a = Integer.parseInt(s1);  
-        // int b = Integer.parseInt(s2);  
-        // double c = 0;  
-        // if(e.getSource()==b1){  
-        //     c = a + b;  
-        // }else if(e.getSource() == b2){  
-        //     c = a - b;  
-        // }else if(e.getSource() == b3){  
-        //     c = a * b;  
-        // }else if(e.getSource() == b4){  
-        //     c = a / b; 
-        // }
-        // String result = String.valueOf(c);  
-        // tf3.setText(result);  
+        String Operand1 = "", Operand2 = "";
+        Boolean Operator = false;
+        double a = 0, b = 0, c = 0;
+        int op = 0;
+        if (e.getSource() == btn01){
+            tfDisplay.setText(tfDisplay.getText() + "1");
+        }else if (e.getSource() == btn02){
+            tfDisplay.setText(tfDisplay.getText() + "2");
+        }else if (e.getSource() == btn03){
+            tfDisplay.setText(tfDisplay.getText() + "3");
+        }else if (e.getSource() == btn04){
+            tfDisplay.setText(tfDisplay.getText() + "4");
+        }else if (e.getSource() == btn05){
+            tfDisplay.setText(tfDisplay.getText() + "5");
+        }else if (e.getSource() == btn06){
+            tfDisplay.setText(tfDisplay.getText() + "6");
+        }else if (e.getSource() == btn07){
+            tfDisplay.setText(tfDisplay.getText() + "7");
+        }else if (e.getSource() == btn08){
+            tfDisplay.setText(tfDisplay.getText() + "8");
+        }else if (e.getSource() == btn09){
+            tfDisplay.setText(tfDisplay.getText() + "9");
+        }else if (e.getSource() == btn00){
+            tfDisplay.setText(tfDisplay.getText() + "0");
+        }
+        
+        if (e.getSource() == btnClear){
+            Operand1 = "";
+            Operand2 = "";
+            Operator = false;
+            tfDisplay.setText("");
+        }else if (e.getSource() == btnPlus){
+            op = 1;
+            Operator = true;
+            Operand1 = tfDisplay.getText();
+            a = Double.parseDouble(Operand1);
+            tfDisplay.setText("");
+        }
+        
+        if (e.getSource() == btnEqual){
+            if (Operator == true){
+                Operand2 = tfDisplay.getText();
+                b = Double.parseDouble(Operand2);
+                if(op == 1){
+                    c = a + b;
+                }
+            }
+            String result = String.valueOf(c);
+            tfDisplay.setText(result); 
+        }
     }  
     public static void main(String[] args) {  
         new SimpleCalculator();
