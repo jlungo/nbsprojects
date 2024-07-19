@@ -10,7 +10,7 @@ class LikeButton extends React.Component {
 
   render() {
     if (this.state.liked) {
-      return 'You liked comment number ' + this.props.commentID;
+      return 'Weka jina ' + this.props.commentID;
     }
 
     return e(
@@ -29,5 +29,12 @@ document.querySelectorAll('.like_button_container')
     const root = ReactDOM.createRoot(domContainer);
     root.render(
       e(LikeButton, { commentID: commentID })
+      const first = "Auron";
+      const last  = "Smith";
+      const name = span<{first} {last}</span;
+      const list = {
+        <ul>
+        <Li>Dr></Lib>
     );
   });
+
